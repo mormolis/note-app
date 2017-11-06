@@ -3,27 +3,39 @@
     this.obj = obj
   }
 
-  ThornyRose.prototype.toEqual = function (assertion) {
+  ThornyRose.prototype = {
 
-    if (typeof this.obj === 'function') {
-      if (this.obj() !== assertion) {
-        throw new Error(this.obj + " does not equal to " + assertion);
+    describe: function (functionality) {
+      console.log("The Following test(s) is/are regarding: " + functionality)
+    },
+
+    toEqual: function (assertion) {
+
+      if (typeof this.obj === 'function') {
+        if (this.obj() !== assertion) {
+          throw new Error(this.obj + " does not equal to " + assertion);
+        } else {
+          console.log("Indeed! " + this.obj() + " === " + assertion);
+        }
       } else {
-        console.log("Indeed! " + this.obj() + " === " + assertion);
-      }
-    } else {
-      if (this.obj !== assertion) {
-        throw new Error(this.obj + " does not equal to " + assertion);
-      } else {
-        console.log("Indeed! " + this.obj + " === " + assertion);
+        if (this.obj !== assertion) {
+          throw new Error(this.obj + " does not equal to " + assertion);
+        } else {
+          console.log("Indeed! " + this.obj + " === " + assertion);
+        }
       }
     }
   }
+  
   var expect = function (obj) {
     test = new ThornyRose(obj);
     return test;
   }
+  var describe = function (text) {
+    description = new ThornyRose().describe(text);
+  }
   exports.expect = expect;
+  exports.describe = describe;
 })(this)
 
 // var testing = function(){
