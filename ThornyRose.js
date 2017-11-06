@@ -24,7 +24,18 @@
           console.log("Indeed! " + this.obj + " === " + assertion);
         }
       }
+    },
+
+    toBeTypeOf: function(type) {
+      if (typeof this.obj === type ){
+        console.log("Indeed! " + this.obj + " is type of " + type);
+        
+      } else {
+        throw new Error(this.obj + " is NOT type of " + type);
+        
+      }
     }
+
   }
   
   var expect = function (obj) {
@@ -34,8 +45,13 @@
   var describe = function (text) {
     description = new ThornyRose().describe(text);
   }
+
+  var toBeTypeOf = function (obj){
+    toBeTypeOf = new ThornyRose().toBeTypeOf(obj);
+  }
   exports.expect = expect;
   exports.describe = describe;
+  exports.toBeTypeOf = toBeTypeOf
 })(this)
 
 // var testing = function(){
