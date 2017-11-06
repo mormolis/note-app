@@ -1,14 +1,11 @@
 (function (exports) {
+  
   function ThornyRose(obj) {
     this.obj = obj
   }
 
-  ThornyRose.prototype = {
 
-    describe: function (functionality) {
-      console.log("The Following test(s) is/are regarding: " + functionality)
-    },
-
+  ThornyRose.prototype = {  
     toEqual: function (assertion) {
 
       if (typeof this.obj === 'function') {
@@ -39,17 +36,24 @@
       return Object.prototype.toString.call(this.obj).slice(8, -1);
 
     }
-
   }
   
+  var it = function (text, fn){
+    console.log(text);
+    fn();
+  }
+
+  var describe = function (text, fn){
+    console.log(text);
+    fn();
+
+  }
   var expect = function (obj) {
     return new ThornyRose(obj);
   }
-  var describe = function (text) {
-    return new ThornyRose().describe(text);
-  }
-
+  exports.it = it;
+  
   exports.expect = expect;
   exports.describe = describe;
 
-})(this)
+})(this);

@@ -1,17 +1,27 @@
-note = new Note("empty note");
+describe("Note", function(){
+  note = new Note("empty note");
 
-describe("Note initialization");
-expect(note._text).toEqual("empty note");
+  it("#initialization", function(){
+    expect(note._text).toEqual("empty note");
+  });
+  
+  
+  it("#getText returns the note text", function(){
+    expect(note.getText()).toEqual(note._text);
+  });
+  
+  
+  it("Initializes a list of notes", function(){
+    noteList = new NoteList();
+    expect(noteList.getList()).toBeTypeOf("Array");
+  });
+  
+  
+  it("#createNote changes the size of the array of notes", function(){
+    noteList.createNote("this is a note");
+    expect(noteList.getList().length).toEqual(1);
+  });
+  
+});
 
-describe("#getText returns the note text");
-expect(note.getText()).toEqual(note._text);
-
-describe("Initializes a list of notes");
-noteList = new NoteList();
-expect(noteList.getList()).toBeTypeOf("Array");
-
-
-describe("#createNote changes the size of the array of notes");
-noteList.createNote("this is a note");
-expect(noteList.getList().length).toEqual(1);
 
