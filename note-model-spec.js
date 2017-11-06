@@ -23,5 +23,3 @@ describe("Note", function(){
   });
   
 });
-
-
