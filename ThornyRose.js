@@ -27,37 +27,29 @@
     },
 
     toBeTypeOf: function(type) {
-      if (typeof this.obj === type ){
-        console.log("Indeed! " + this.obj + " is type of " + type);
+      if (this._typeOf() === type ){
+        console.log("Indeed! " + this._typeOf() + " is type of " + type);
         
       } else {
-        throw new Error(this.obj + " is NOT type of " + type);
+        throw new Error(this._typeOf() + " is NOT type of " + type);
         
       }
+    },
+    _typeOf: function(){
+      return Object.prototype.toString.call(this.obj).slice(8, -1);
+
     }
 
   }
   
   var expect = function (obj) {
-    test = new ThornyRose(obj);
-    return test;
+    return new ThornyRose(obj);
   }
   var describe = function (text) {
-    description = new ThornyRose().describe(text);
+    return new ThornyRose().describe(text);
   }
 
-  var toBeTypeOf = function (obj){
-    toBeTypeOf = new ThornyRose().toBeTypeOf(obj);
-  }
   exports.expect = expect;
   exports.describe = describe;
-  exports.toBeTypeOf = toBeTypeOf
+
 })(this)
-
-// var testing = function(){
-//   return 5;
-// }
-
-// expect(testing).toEqual(5);
-
-// expect(5).toEqual(5);
