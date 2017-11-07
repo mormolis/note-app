@@ -12,23 +12,24 @@
         if (this.obj() !== assertion) {
           
           
-          displayToPage.setMessage(this.obj + " does not equal to " + assertion)
+          displayToPage.setMessage("D'oh! " + this.obj + " does not equal to " + assertion)
+          displayToPage.addClass("error");
           
-          throw new Error(this.obj + " does not equal to " + assertion);
+          throw new Error("D'oh! "+this.obj + " does not equal to " + assertion);
         } else {
-          displayToPage.setMessage("Indeed! " + this.obj() + " === " + assertion)
+          displayToPage.setMessage("You nailed it!! " + this.obj() + " === " + assertion)
           
-          console.log("Indeed! " + this.obj() + " === " + assertion);
+          console.log("You nailed it! " + this.obj() + " === " + assertion);
         }
       } else {
         if (this.obj !== assertion) {
-          displayToPage.setMessage(this.obj + " does not equal to " + assertion)
-          
-          throw new Error(this.obj + " does not equal to " + assertion);
+          displayToPage.setMessage("D'oh! "+ this.obj + " does not equal to " + assertion)
+          displayToPage.addClass("error");
+          throw new Error("D'oh! "+ this.obj + " does not equal to " + assertion);
         } else {
-          displayToPage.setMessage("Indeed! " + this.obj + " === " + assertion)
-
-          console.log("Indeed! " + this.obj + " === " + assertion);
+          displayToPage.setMessage("You nailed it!! " + this.obj + " === " + assertion)
+          
+          console.log("You nailed it!! " + this.obj + " === " + assertion);
         }
       }
     },
@@ -37,12 +38,13 @@
       var displayToPage = new CreateDiv("toBeTypeOf")
       if (this._typeOf() === type) {
 
-        displayToPage.setMessage("Indeed! " + this._typeOf() + " is type of " + type)
+        displayToPage.setMessage("You nailed it!! " + this._typeOf() + " is type of " + type)
+        
         console.log("Indeed! " + this._typeOf() + " is type of " + type);
 
       } else {
-        displayToPage.setMessage(this._typeOf() + " is NOT type of " + type)
-        
+        displayToPage.setMessage("D'oh! "+this._typeOf() + " is NOT type of " + type)
+        displayToPage.addClass("error");
         throw new Error(this._typeOf() + " is NOT type of " + type);
 
       }

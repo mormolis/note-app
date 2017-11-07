@@ -2,14 +2,20 @@
 
 function CreateDiv(type){
   this.type = type;
+  this.div = null;
 }
 
 CreateDiv.prototype.setMessage = function (message){
-  var type = document.createElement("div");
-  type.setAttribute('class', this.type);
+  this.div = document.createElement("div");
+  this.div.setAttribute('class', this.type);
   var text = document.createTextNode(message);
-  type.appendChild(text);
-  document.body.appendChild(type);
+  this.div.appendChild(text);
+  document.body.appendChild(this.div);
+
+}
+
+CreateDiv.prototype.addClass = function (type){
+  this.div.setAttribute('class', this.type +" "+type);
 
 }
 exports.CreateDiv = CreateDiv;

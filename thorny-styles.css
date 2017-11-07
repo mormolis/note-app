@@ -1,0 +1,30 @@
+.it{
+  padding-top: 10px;
+  padding-left: 30px;
+  font-size: 1.3em;
+  background-color: rgb(175, 175, 175);
+}
+.toEqual{
+  padding-top: 3px;
+padding-left: 50px;
+background-color: rgb(175, 252, 213);
+
+}
+
+
+.toBeTypeOf{
+  padding-top: 3px;
+  padding-left: 50px;
+  background-color: rgb(175, 252, 213);
+}
+
+.describe{
+  font-size: 1.5em;
+  background-color: rgb(175, 175, 175);
+  
+}
+
+.error {
+  color: white;
+  background-color: red;
+}

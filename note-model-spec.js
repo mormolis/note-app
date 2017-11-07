@@ -19,7 +19,7 @@ showOff("Note", function(){
   
   theThingy("#createNote changes the size of the array of notes", function(){
     noteList.createNote("this is a note");
-    hope(noteList.getList().length).toEqual(1);
+    hope(noteList.getList().length).toEqual(2);
   });
   
 });
