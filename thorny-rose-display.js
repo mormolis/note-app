@@ -15,8 +15,8 @@ CreateDiv.prototype.setMessage = function (message){
 }
 
 CreateDiv.prototype.addClass = function (type){
-  this.div.setAttribute('class', this.type +" "+type);
-
+  this.type += " " + type;
+  this.div.setAttribute('class', this.type);
 }
 exports.CreateDiv = CreateDiv;
 })(this);

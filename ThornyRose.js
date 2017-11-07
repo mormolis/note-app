@@ -10,12 +10,11 @@
 
       if (typeof this.obj === 'function') {
         if (this.obj() !== assertion) {
-          
-          
-          displayToPage.setMessage("D'oh! " + this.obj + " does not equal to " + assertion)
+          errorMessage = catchThorns(new Error("D'oh! "+this.obj + " does not equal to " + assertion));
+          displayToPage.setMessage(errorMessage)
           displayToPage.addClass("error");
           
-          throw new Error("D'oh! "+this.obj + " does not equal to " + assertion);
+          
         } else {
           displayToPage.setMessage("You nailed it!! " + this.obj() + " === " + assertion)
           
@@ -23,9 +22,10 @@
         }
       } else {
         if (this.obj !== assertion) {
-          displayToPage.setMessage("D'oh! "+ this.obj + " does not equal to " + assertion)
+          
+          errorMessage = catchThorns(new Error("D'oh! "+ this.obj + " does not equal to " + assertion));
+          displayToPage.setMessage(errorMessage)
           displayToPage.addClass("error");
-          throw new Error("D'oh! "+ this.obj + " does not equal to " + assertion);
         } else {
           displayToPage.setMessage("You nailed it!! " + this.obj + " === " + assertion)
           
@@ -43,9 +43,10 @@
         console.log("Indeed! " + this._typeOf() + " is type of " + type);
 
       } else {
-        displayToPage.setMessage("D'oh! "+this._typeOf() + " is NOT type of " + type)
+        errorMessage = catchThorns( new Error(this._typeOf() + " is NOT type of " + type));
+        displayToPage.setMessage(errorMessage);
         displayToPage.addClass("error");
-        throw new Error(this._typeOf() + " is NOT type of " + type);
+        
 
       }
     },
@@ -58,10 +59,18 @@
     return new ThornyRose(obj);
   }
 
+  var catchThorns = function (thorn){
+    try{
+      throw thorn;
+    } catch (e) {
+      return e.stack ;
+    }
+  }
  
   exports.hope = expect;
   
 })(this);
+
 
 (function (exports) {
   var describe = function (text, fn) {

@@ -1,0 +1,27 @@
+{
+  "name": "note-app",
+  "version": "1.0.0",
+  "description": "a note app",
+  "main": "ThornyRose.js",
+  "dependencies": {
+    "http-server": "^0.10.0",
+    "node": "^9.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mormolis/note-app.git"
+  },
+  "keywords": [
+    "note-app"
+  ],
+  "author": "mormolis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mormolis/note-app/issues"
+  },
+  "homepage": "https://github.com/mormolis/note-app#readme"
+}
