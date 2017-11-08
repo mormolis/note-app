@@ -13,11 +13,8 @@
           errorMessage = catchThorns(new Error("D'oh! "+this.obj + " does not equal to " + assertion));
           displayToPage.setMessage(errorMessage)
           displayToPage.addClass("error");
-          
-          
         } else {
           displayToPage.setMessage("You nailed it!! " + this.obj() + " === " + assertion)
-          
           console.log("You nailed it! " + this.obj() + " === " + assertion);
         }
       } else {
