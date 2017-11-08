@@ -10,6 +10,14 @@
 
     createNote: function (text) {
       this._list.push(new Note(text));
+    },
+
+    getLastNote: function(){
+      return this._list[this._list.length - 1];
+    },
+
+    getLastNoteText: function(){
+      return this.getLastNote().getText();
     }
   }
 
