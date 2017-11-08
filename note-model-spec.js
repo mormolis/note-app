@@ -29,9 +29,9 @@ showOff("Note", function() {
       hope(noteList.getLastNote().getText()).toEqual("this is another note");
     })
 
-    // theThingy("returns the text of the latest note", function(){
-    //   noteList
-    // })
+    theThingy("returns the text of the latest note", function() {
+      hope(noteList.getLastNoteText()).toEqual("this is another note");
+    })
   });
 
 });
