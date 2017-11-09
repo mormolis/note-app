@@ -18,7 +18,13 @@
 
     getLastNoteText: function(){
       return this.getLastNote().getText();
+    },
+
+    getNoteByIndex: function(index){
+      return this._list[index];
     }
+
+
   }
 
   exports.NoteList = NoteList;

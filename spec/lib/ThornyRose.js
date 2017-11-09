@@ -33,23 +33,18 @@
 
     toBeTypeOf: function (type) {
       var displayToPage = new CreateDiv("toBeTypeOf")
-      if (this._typeOf() === type) {
-
-        displayToPage.setMessage("You nailed it!! " + this._typeOf() + " is type of " + type)
+      if (this.obj instanceof eval(type) ){
+        console.log(this.obj)
+        displayToPage.setMessage("You nailed it!! " +this.obj + " is type of " + type)
         
-        console.log("Indeed! " + this._typeOf() + " is type of " + type);
-
       } else {
-        errorMessage = catchThorns( new Error(this._typeOf() + " is NOT type of " + type));
+        errorMessage = catchThorns( new Error(this.obj + " is NOT instance of " + type));
         displayToPage.setMessage(errorMessage);
         displayToPage.addClass("error");
         
-
       }
-    },
-    _typeOf: function () {
-      return Object.prototype.toString.call(this.obj).slice(8, -1);
     }
+  
   }
 
   var expect = function (obj) {
