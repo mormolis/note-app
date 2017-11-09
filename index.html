@@ -3,6 +3,8 @@
 
 <head>
   <title>test</title>
+  <link rel="stylesheet" href="css/styles.css">
+  
   <script src="src/note-model.js"></script>
   <script src="src/note-list-model.js"></script>
   <script src="src/note-list-view.js"></script>
@@ -10,20 +12,16 @@
 </head>
 
 <body>
-    
+    <h1>Take notes and then lose them on refresh!</h1>
 
-  <form>
+  <form id="noteForm">
     <textarea rows="4" cols="50" id="newNote"></textarea>
-  <input type="submit" value="add note from form" id="notebtn">
+  <input type="submit" value="Add Note" id="notebtn">
   </form>
   <!-- <script>var noteController = new NoteController();</script> -->
   <!-- <button onclick="noteController.addNoteToPage()">Add note</button> -->
-  <div id="abbrv">
-
-  </div>
-  <div id="wholeNote">
-
-  </div>
+  <div id="abbrv"></div>
+  <div id="wholeNote"></div>
 
 
   <script>

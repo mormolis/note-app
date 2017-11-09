@@ -1,0 +1,61 @@
+body{
+  height: 100% !important;
+  padding-top: 50px;
+  width: 900px;
+  font-family: Courier New, Courier, monospace;
+  margin: auto;
+}
+a{
+  color: rgb(137, 177, 7)
+}
+a:hover{
+  background-color: #242
+}
+form{
+padding-left:250px;
+}
+#newNote{
+  font-family: Courier New, Courier, monospace;
+border-radius: 20px;
+padding:5px;
+}
+
+#notebtn{
+  font-family: Courier New, Courier, monospace;
+  display: block;
+  margin: 10px;
+
+  color: rgb(0, 0, 0);
+  background: rgba(0,0,0,0);
+  border: solid 1px rgb(0, 0, 0);
+  
+  padding: 10px 20px 10px 20px;
+  -webkit-border-radius: 50;
+  -moz-border-radius: 50;
+  border-radius: 50px;
+
+}
+
+#notebtn:hover {
+  color: #ffffff; 
+  background-color: rgb(75, 75, 75)
+}
+
+
+
+
+#abbrv{
+  width: 450px;
+  float:left;
+  padding: 40px;
+}
+
+#wholeNote{
+
+  width: 450px;
+  display:inline;
+}
+
+.note-abrv{
+
+}

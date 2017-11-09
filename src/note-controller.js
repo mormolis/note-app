@@ -25,10 +25,16 @@
       _noteList.createNote(text);
       refreshNodeListView();
     }
-
+    var clearForm = function(){
+      var frm = document.getElementById('noteForm');
+      
+      frm.reset();  // Reset
+      // return false; // Prevent page refresh
+    }
     var addEventListenerToPage = function(id) {
       document.getElementById(id).addEventListener("click", function (e) {
         addNoteToPage();
+        clearForm();
         e.preventDefault();
       });
     }
