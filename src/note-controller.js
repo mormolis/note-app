@@ -1,41 +1,52 @@
-(function(exports) {
+(function (exports) {
 
-  exports.NoteController = function() {
-    console.log(NoteList)
-  var _noteList = new NoteList();
-  var _noteListView = new NoteListView(_noteList);
+  exports.NoteController = function () {
+    var _noteList = new NoteList();
+    var _noteListView = new NoteListView(_noteList);
 
-  var addDiv = function() {
-    var div = document.createElement("div");
-    // document.body.appendChild(div);
-    document.getElementById("abbrv").appendChild(div)
-    return div;
-  }
+    var addDiv = function () {
+      var div = document.createElement("div");
+      // document.body.appendChild(div);
+      document.getElementById("abbrv").appendChild(div)
+      return div;
+    }
 
-  var openNoteFunction = function(index) {
-    var wholeNote = _noteList.getNoteByIndex(index).getText();
-    document.getElementById("wholeNote").innerHTML = wholeNote;
-  }
+    var openNoteFunction = function (index) {
+      var wholeNote = _noteList.getNoteByIndex(index).getText();
+      document.getElementById("wholeNote").innerHTML = wholeNote;
+    }
 
-  var refreshNodeListView = function() {
-    document.getElementById("abbrv").innerHTML = _noteListView.noteListToHTML();
-  }
+    var refreshNodeListView = function () {
+      document.getElementById("abbrv").innerHTML = _noteListView.noteListToHTML();
+    }
 
-  var addNoteToPage = function() {
-    text = document.getElementById("newNote").value;
-    _noteList.createNote(text);
-    refreshNodeListView();
-  }
+    var addNoteToPage = function () {
+      text = document.getElementById("newNote").value;
+      _noteList.createNote(text);
+      refreshNodeListView();
+    }
 
-  return {addNoteToPage: addNoteToPage,
-          openNoteFunction: openNoteFunction}
-  // exports.openNoteFunction = openNoteFunction;
+    var addEventListenerToPage = function(id) {
+      document.getElementById(id).addEventListener("click", function (e) {
+        addNoteToPage();
+        e.preventDefault();
+      });
+    }
+
+
+    return {
+      addNoteToPage: addNoteToPage,
+      openNoteFunction: openNoteFunction,
+      addEventListenerToPage: addEventListenerToPage
+    }
+    // exports.openNoteFunction = openNoteFunction;
   }
 })(this);
 
-(function(exports){
-window.onload = function () {
-  exports.noteController = new NoteController();
-}
-}
-)(this)
+(function (exports) {
+  window.onload = function () {
+    noteController = new NoteController();
+    noteController.addEventListenerToPage("notebtn");
+    
+  }
+})(this)

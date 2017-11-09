@@ -1,5 +1,4 @@
 (function (exports) {
-  console.log("Am i loaded?")
   var NoteList = function () {
     this._list = [];
   };
