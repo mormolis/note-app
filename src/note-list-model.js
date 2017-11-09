@@ -1,7 +1,8 @@
 (function (exports) {
+  console.log("Am i loaded?")
   var NoteList = function () {
     this._list = [];
-  }
+  };
 
   NoteList.prototype = {
     getList: function () {
@@ -25,7 +26,7 @@
     }
 
 
-  }
+  };
 
   exports.NoteList = NoteList;
 })(this);

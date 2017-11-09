@@ -1,5 +1,7 @@
 (function(exports) {
 
+  exports.NoteController = function() {
+    console.log(NoteList)
   var _noteList = new NoteList();
   var _noteListView = new NoteListView(_noteList);
 
@@ -10,25 +12,30 @@
     return div;
   }
 
- 
-
   var openNoteFunction = function(index) {
-    
-    
-    
+    var wholeNote = _noteList.getNoteByIndex(index).getText();
+    document.getElementById("wholeNote").innerHTML = wholeNote;
   }
 
   var refreshNodeListView = function() {
     document.getElementById("abbrv").innerHTML = _noteListView.noteListToHTML();
   }
 
-  var createNote = function() {
-    text = document.getElementById("newNote").value
+  var addNoteToPage = function() {
+    text = document.getElementById("newNote").value;
     _noteList.createNote(text);
     refreshNodeListView();
   }
 
-  exports.createNote = createNote;
+  return {addNoteToPage: addNoteToPage,
+          openNoteFunction: openNoteFunction}
   // exports.openNoteFunction = openNoteFunction;
-
+  }
 })(this);
+
+(function(exports){
+window.onload = function () {
+  exports.noteController = new NoteController();
+}
+}
+)(this)

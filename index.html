@@ -3,12 +3,17 @@
 
 <head>
   <title>test</title>
+  <script src="src/note-model.js"></script>
+  <script src="src/note-list-model.js"></script>
+  <script src="src/note-list-view.js"></script>
+  <script src="src/note-controller.js"></script>
 </head>
 
 <body>
 
   <form><input type="text" id="newNote"></form>
-  <button onclick="createNote()">Add note</button>
+  <!-- <script>var noteController = new NoteController();</script> -->
+  <button onclick="noteController.addNoteToPage()">Add note</button>
   <div id="abbrv">
 
   </div>
@@ -17,10 +22,7 @@
   </div>
 
 
-  <script src="src/note-model.js"></script>
-  <script src="src/note-list-model.js"></script>
-  <script src="src/note-list-view.js"></script>
-  <script src="src/note-controller.js"></script>
+
 
 
 </body>
