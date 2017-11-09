@@ -25,7 +25,7 @@
     var note = addDiv(); // creates div
     addClass("notediv", note); //adds class
     var notediv = document.getElementsByClassName("notediv");
-    notediv[notediv.length - 1].innerHTML = addHTMLtoNoteText(_noteList.getLastNoteText(), _noteList.getLastNoteIndex());
+    notediv[notediv.length - 1].innerHTML = addHTMLtoNoteText(_noteList.getLastNoteText());
     console.log(_noteList);
   }
 
